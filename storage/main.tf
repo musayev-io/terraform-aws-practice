@@ -1,0 +1,17 @@
+# -----------storage/main.tf-----------
+
+# Create a Random ID for s3 bucket
+resource "random_id" "tf_bucket_id" {
+  byte_length = 8
+}
+
+# Create bucket /w Decimal suffix
+resource "aws_s3_bucket" "tf_code" {
+  bucket        = "${var.project_name}-${random_id.tf_bucket_id.dec}"
+  acl           = "private"
+  force_destroy = true
+
+  tags {
+    Name = "tf_bucket"
+  }
+}
