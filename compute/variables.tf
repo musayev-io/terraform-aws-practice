@@ -1,12 +1,8 @@
 # -----------compute/variables.tf-----------
 
-variable "private_key_name" {
-  default = "tfkey"
-}
+variable "private_key_name" {}
 
-variable "public_key_path" {
-  default = "~/.ssh/id_rsa.pub"
-}
+variable "public_key_path" {}
 
 variable "subnet_ips" {
   type = "list"
@@ -18,4 +14,6 @@ variable "instance_type" {}
 
 variable "security_group" {}
 
-variable "subnets" {}
+variable "subnets" {
+  type = "list"
+}
